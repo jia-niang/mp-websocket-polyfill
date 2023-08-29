@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "scripts": {
+    "mp": "lerna exec --scope sample-mp-taro pnpm run dev",
+    "build": "lerna exec --scope mp-websocket-polyfill pnpm run build",
+    "preinstall": "npx only-allow pnpm",
+    "publish": "lerna publish from-package -y"
+  },
+  "workspaces": [
+    "./packages/*"
+  ],
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.2.0",
+    "@types/node": "^20.5.1",
+    "@types/wechat-miniprogram": "^3.4.3",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "lerna": "^7.1.5",
+    "prettier": "^3.0.2",
+    "typescript": "^5.1.6"
+  }
+}

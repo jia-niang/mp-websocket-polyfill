@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "noEmit": false,
+    "target": "ESNext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "module": "ES6",
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "baseUrl": ".",
+  },
+  "include": [
+    "./src"
+  ]
+}

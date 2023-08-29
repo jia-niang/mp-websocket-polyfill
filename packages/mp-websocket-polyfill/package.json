@@ -1,0 +1,35 @@
+{
+  "name": "mp-websocket-polyfill",
+  "version": "0.1.0",
+  "description": "Let WebSocket in WeChat miniprogram to adapt browser's lib.",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "build": "node ./scripts/build.js",
+    "prepublishOnly": "pnpm run build"
+  },
+  "keywords": [
+    "miniprogram",
+    "wechat",
+    "websocket",
+    "stomp"
+  ],
+  "bugs": {
+    "url": "https://github.com/jia-niang/mp-websocket-polyfill/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jia-niang/mp-websocket-polyfill"
+  },
+  "author": "jia-niang <1@paperplane.cc>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/wechat-miniprogram": "^3.0.0"
+  },
+  "files": [
+    "es/**",
+    "lib/**"
+  ]
+}
