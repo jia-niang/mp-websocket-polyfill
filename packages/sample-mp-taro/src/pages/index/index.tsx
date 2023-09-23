@@ -38,9 +38,6 @@ export default function StompPage() {
           url: 'ws://localhost:8080/gs-guide-websocket',
           timeout: 30000,
           protocols: ['v12.stomp', 'v11.stomp', 'v10.stomp'], // ← 这是 stomp 的协议，必须写
-          header: {
-            Origin: 'http://localhost:8080', // ← 有些服务端必须提供正确的 Origin，可能必须 http(s) 开头，不是 ws 开头
-          },
         })
       },
     })
