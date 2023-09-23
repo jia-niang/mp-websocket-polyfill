@@ -6,9 +6,27 @@
 
 ```bash
 yarn add mp-websocket-polyfill
+
+# 小程序真机调试，可能会因找不到 TextEncoder、TextDecoder 而报错
+# 所以，推荐安装垫片：
+yarn add fastestsmallesttextencoderdecoder
 ```
 
 # 使用方式
+
+## 解决真机 `TextEncoder`、`TextDecoder` 找不到问题
+
+安装依赖：
+
+```bash
+yarn add fastestsmallesttextencoderdecoder
+```
+
+然后在入口处：
+
+```typescript
+import 'fastestsmallesttextencoderdecoder'
+```
 
 ## 直接使用
 
@@ -45,7 +63,7 @@ const client = new Client({
   webSocketFactory() {
     return new Ws({
       url: 'ws://localhost:8080/gs-guide-websocket',
-      protocols: ['v12.stomp', 'v11.stomp', 'v10.stomp'], // ← 这是 stomp 的协议，必须写
+      protocols: ['v12.stomp', 'v11.stomp', 'v10.stomp'], // ← 这是 stomp 协议的默认写法，可供参考
     })
   },
 })
@@ -58,10 +76,10 @@ client.activate()
 注意事项：
 
 - 使用垫片构造的实例，原先小程序自带的 API 例如 `onOpen`、`onClose` 均被屏蔽无法使用，但是可以通过新实例 `.socketTask` 属性获取小程序原生的 `SocketTask` 对象；
-- 如果使用 Stomp，建议参考上面的示例，尤其是 `protocols` 和 `header` 字段；
-- 如有 iOS 使用 Stomp 断连的问题，可参考社区案例：[https://developers.weixin.qq.com/community/develop/article/doc/00028457db8230ae22ebb525e56c13](https://developers.weixin.qq.com/community/develop/article/doc/00028457db8230ae22ebb525e56c13)。
+- 如果使用 Stomp，建议参考上面的示例，有时 `protocols` 也要配置正确。
 
 # API
 
-- `new Ws()`（即 `constructor()`）：和微信小程序的 `wx.connectSocket()` 参数保持一致；
+- `new Ws(options)`：兼容微信小程序的 `wx.connectSocket()` 的参数，提供额外的配置字段：
+  - `fixIOSWechat0x00Issue`：默认为 `true`（`boolean` 类型），是否修复 iOS 微信接收到 Stomp 消息时可能因遗漏末尾 0x00 字符而导致解析失败的问题；
 - `ws.socketTask`：通过实例的这个属性，可以获取原生的小程序 `socketTask` 对象。

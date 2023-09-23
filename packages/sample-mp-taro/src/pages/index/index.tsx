@@ -1,5 +1,7 @@
 import { Client } from '@stomp/stompjs'
 import { Button } from '@tarojs/components'
+// ↓ 下面这行引入垫片库，解决真机运行时 TextEncoder、TextDecoder 的问题，推荐写在项目入口处
+import 'fastestsmallesttextencoderdecoder'
 import Ws from 'mp-websocket-polyfill/src/index'
 import { useRef } from 'react'
 
@@ -37,7 +39,7 @@ export default function StompPage() {
         return new Ws({
           url: 'ws://localhost:8080/gs-guide-websocket',
           timeout: 30000,
-          protocols: ['v12.stomp', 'v11.stomp', 'v10.stomp'], // ← 这是 stomp 的协议，必须写
+          protocols: ['v12.stomp', 'v11.stomp', 'v10.stomp'], // ← 这是 stomp 协议的默认写法，可供参考
         })
       },
     })
