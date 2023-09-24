@@ -2,6 +2,8 @@ import { Client } from '@stomp/stompjs'
 import { Button } from '@tarojs/components'
 // ↓ 下面这行引入垫片库，解决真机运行时 TextEncoder、TextDecoder 的问题，推荐写在项目入口处
 import 'fastestsmallesttextencoderdecoder'
+// ↓ 下面这行引入 mp-websocket-polyfill。
+//   如果小程序真机运行不想开启“将 JS 编译为 ES5”，建议先 pnpm run build，然后把 /src/ 改为 /lib/
 import Ws from 'mp-websocket-polyfill/src/index'
 import { useRef } from 'react'
 

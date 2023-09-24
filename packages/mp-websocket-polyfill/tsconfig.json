@@ -2,7 +2,7 @@
   "compilerOptions": {
     "declaration": true,
     "noEmit": false,
-    "target": "ESNext",
+    "target": "ES5",
     "lib": [
       "dom",
       "dom.iterable",
